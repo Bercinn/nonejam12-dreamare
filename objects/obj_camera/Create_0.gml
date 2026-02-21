@@ -1,6 +1,6 @@
 scales = {
-	cam: 3,
-	win: 2,
+	cam: 4,
+	win: 3,
 	gui: 1
 };
 

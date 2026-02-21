@@ -1,14 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_bootstrap",
-  "spriteId": null,
+  "name": "obj_pad",
+  "spriteId": {
+    "name": "spr_pad",
+    "path": "sprites/spr_pad/spr_pad.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_throwable",
+    "path": "objects/obj_throwable/obj_throwable.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Controllers",
-    "path": "folders/Objetos/Controllers.yy",
+    "name": "Throwables",
+    "path": "folders/Objetos/Throwables.yy",
   },
 }

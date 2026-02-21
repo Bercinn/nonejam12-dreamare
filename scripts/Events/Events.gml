@@ -6,7 +6,9 @@ function Event() constructor{
 	}
 }
 
-function TestEvent(_arg) : Event() constructor{
-	__type = "test_event";
-	test = _arg;
+function CollectEvent(_target, _item) : Event() constructor{
+	__type = "collect_event";
+	target = _target;
+	item = _item;
 }
+
