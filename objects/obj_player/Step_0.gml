@@ -22,3 +22,11 @@ hor_speed = lerp(hor_speed, _hmove, 0.15);
 ver_speed = lerp(ver_speed, _vmove, 0.15);
 
 move_and_collide(hor_speed, ver_speed, obj_solid);
+
+if(moving){
+	yscale = lerp(yscale, 1, 0.1);
+	rotation = Wave(10, -10, 1.5);
+}else{
+	yscale = Wave(1, 0.85, 2);
+	rotation = lerp(rotation, 0, 0.1);
+}

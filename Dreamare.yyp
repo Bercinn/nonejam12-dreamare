@@ -3,12 +3,18 @@
   "resourceVersion": "1.6",
   "name": "Dreamare",
   "resources": [
-    {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
+    {"id":{"name":"obj_bootstrap","path":"objects/obj_bootstrap/obj_bootstrap.yy",},"order":3,},
+    {"id":{"name":"Init","path":"scripts/Init/Init.yy",},"order":2,},
     {"id":{"name":"spr_solid","path":"sprites/spr_solid/spr_solid.yy",},"order":1,},
-    {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"order":0,},
+    {"id":{"name":"obj_event_bus","path":"objects/obj_event_bus/obj_event_bus.yy",},"order":0,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":1,},
     {"id":{"name":"EventBus","path":"scripts/EventBus/EventBus.yy",},"order":0,},
+    {"id":{"name":"FSM","path":"scripts/FSM/FSM.yy",},"order":4,},
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":4,},
+    {"id":{"name":"rm_bootstrap","path":"rooms/rm_bootstrap/rm_bootstrap.yy",},"order":1,},
     {"id":{"name":"obj_solid","path":"objects/obj_solid/obj_solid.yy",},"order":2,},
+    {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":2,},
+    {"id":{"name":"Util","path":"scripts/Util/Util.yy",},"order":3,},
     {"id":{"name":"Events","path":"scripts/Events/Events.yy",},"order":1,},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},"order":0,},
   ],
@@ -30,6 +36,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"rm_bootstrap","path":"rooms/rm_bootstrap/rm_bootstrap.yy",},},
     {"roomId":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
   ],
   "Folders": [
