@@ -1,1 +1,1 @@
-global.event_bus = undefined;
+global.nightmare = false;

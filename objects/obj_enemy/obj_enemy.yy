@@ -1,8 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_throwable",
-  "spriteId": null,
+  "name": "obj_enemy",
+  "spriteId": {
+    "name": "spr_ghost",
+    "path": "sprites/spr_ghost/spr_ghost.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -17,18 +20,18 @@
   "physicsRestitution": 0.1,
   "physicsLinearDamping": 0.1,
   "physicsAngularDamping": 0.1,
-  "physicsFriction": 0.0,
+  "physicsFriction": 0.2,
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Throwables",
-    "path": "folders/Objetos/Throwables.yy",
+    "name": "Objetos",
+    "path": "folders/Objetos.yy",
   },
 }

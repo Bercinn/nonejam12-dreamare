@@ -5,7 +5,8 @@ inputs = {
 	right: keyboard_check(ord("D")),
 	dash: keyboard_check_pressed(vk_space),
 	interact: keyboard_check_pressed(ord("F")),
-	attack: mouse_check_button_pressed(mb_left)
+	attack: mouse_check_button_pressed(mb_left),
+	switch_mode: mouse_check_button_pressed(mb_right)
 };
 
 center_y = y - sprite_get_height(sprite_index) / 2;
@@ -20,10 +21,18 @@ knockback_y = lerp(knockback_y, 0, 0.2);
 dash_push_x = lerp(dash_push_x, 0, 0.2);
 dash_push_y = lerp(dash_push_y, 0, 0.2);
 
+// Trocar modo
+if(inputs.switch_mode){
+	global.nightmare = !global.nightmare;
+}
+
 // Dash
 if(inputs.dash){
 	dash_push_x = lengthdir_x(dash_force, mouse_dir);
 	dash_push_y = lengthdir_y(dash_force, mouse_dir);
+	
+	xscale = 1.2;
+	yscale = 0.7;
 }
 
 // Movimento
@@ -52,16 +61,28 @@ ver_speed += knockback_y;
 move_and_collide(hor_speed, ver_speed, obj_solid);
 
 // Coletar
-var _collectable = instance_place(x, y, obj_throwable);
+var _collectable = collision_circle(x, center_y, 32, obj_throwable, false, true);
 if(_collectable){
 	if(item_held == undefined && inputs.interact){
 		item_held = _collectable;
+		interact_timer = interact_delay;
 	}
 }
 
 if(item_held != undefined){
 	item_held.x = x;
 	item_held.y = center_y + 8;
+	
+	item_held.image_angle = 0;
+	
+	interact_timer--;
+	if(interact_timer <= 0){
+		interact_timer = 0;
+		if(inputs.interact){
+			item_held = undefined;
+			interact_timer = interact_delay;
+		}
+	}
 	
 	if(inputs.attack){
 		item_held.thrown = true;

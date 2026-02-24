@@ -13,6 +13,8 @@ dash_push_y = 0;
 // Input
 inputs = {};
 mouse_dir = 0;
+interact_delay = game_get_speed(gamespeed_fps) * 0.3
+interact_timer = 0;
 
 // Visuais
 xscale = abs(image_xscale);
