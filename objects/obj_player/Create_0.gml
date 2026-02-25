@@ -10,6 +10,9 @@ dash_force = move_speed / 2;
 dash_push_x = 0;
 dash_push_y = 0;
 
+dash_delay = game_get_speed(gamespeed_fps) * 0.5;
+dash_timer = 0;
+
 // Input
 inputs = {};
 mouse_dir = 0;

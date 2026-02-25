@@ -26,7 +26,7 @@ void main()
 	color *= u_filter_color;
 	
 	// ruido
-	float noise = (hash(v_vTexcoord + u_time) - 0.4) * 0.15;
+	float noise = (hash(v_vTexcoord + u_time) - 0.4) * 0.3;
 	color += noise;
 	
 	// vinheta

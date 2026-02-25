@@ -15,7 +15,7 @@ mouse_dir = point_direction(x, center_y, mouse_x, mouse_y);
 xscale = lerp(xscale, 1, 0.1);
 yscale = lerp(yscale, 1, 0.1);
 
-knockback_x = lerp(knockback_x, 0, 0.2);
+knockback_x = lerp(knockback_x, 0, 0.2); 
 knockback_y = lerp(knockback_y, 0, 0.2);
 
 dash_push_x = lerp(dash_push_x, 0, 0.2);
@@ -27,12 +27,17 @@ if(inputs.switch_mode){
 }
 
 // Dash
-if(inputs.dash){
-	dash_push_x = lengthdir_x(dash_force, mouse_dir);
-	dash_push_y = lengthdir_y(dash_force, mouse_dir);
+dash_timer--;
+if(dash_timer <= 0){
+	if(inputs.dash){
+		dash_push_x = lengthdir_x(dash_force, mouse_dir);
+		dash_push_y = lengthdir_y(dash_force, mouse_dir);
 	
-	xscale = 1.2;
-	yscale = 0.7;
+		xscale = 1.2;
+		yscale = 0.7;
+		
+		dash_timer = dash_delay;
+	}
 }
 
 // Movimento
@@ -61,10 +66,18 @@ ver_speed += knockback_y;
 move_and_collide(hor_speed, ver_speed, obj_solid);
 
 // Coletar
-var _collectable = collision_circle(x, center_y, 32, obj_throwable, false, true);
+var _collectable = collision_circle(x, center_y, 20, obj_throwable, false, true);
 if(_collectable){
 	if(item_held == undefined && inputs.interact){
 		item_held = _collectable;
+		interact_timer = interact_delay;
+	}
+}
+
+var _hole_filler = collision_circle(x, center_y, 20, obj_hole_filler, false, true);
+if(_hole_filler && _hole_filler.collectable){
+	if(item_held == undefined && inputs.interact){
+		item_held = _hole_filler;
 		interact_timer = interact_delay;
 	}
 }
@@ -84,7 +97,10 @@ if(item_held != undefined){
 		}
 	}
 	
-	if(inputs.attack){
+	if(object_get_parent(item_held.object_index) == obj_throwable && inputs.attack){
+		item_held.force = 0;
+		item_held.dir = 0;
+		
 		item_held.thrown = true;
 		item_held.dir = mouse_dir;
 		item_held.force = launch_force;
